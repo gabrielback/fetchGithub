@@ -3,10 +3,13 @@ const userImage = document.getElementById('foto')
 const userName = document.getElementById('name')
 const githubUserName = "gabrielback"
 
-
+const headers = new Headers();
+headers.append('Authorization', 'token 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');
 
 const getUserRepositories = (user) => {
-    fetch(`http://api.github.com/users/${user}/repos`)
+    fetch(`http://api.github.com/users/${user}/repos`, {
+        headers:headers
+    })
     .then(async res => {
         if (!res.ok) {
             throw new Error(res.status)
@@ -18,7 +21,7 @@ const getUserRepositories = (user) => {
         fetch('../json/content.json')
         .then(response => response.json())
         .then(data => {
-            renderizarDashboard(data)
+            // renderizarDashboard(data)
         })
         .then(
             fetch(`https://api.github.com/users/${githubUserName}`)
