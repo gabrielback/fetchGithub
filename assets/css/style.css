@@ -1,0 +1,141 @@
+*{
+    padding: 0;
+    margin:0
+}
+
+body{
+    height: 100%vh;
+    background-image: linear-gradient(35deg, #fff, #777);
+    background-repeat: no-repeat;
+    font-family: sans-serif;
+}
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+}
+.header{
+    margin: 20px 5% 10px 5%;
+    display: flex;
+    text-align: center;
+    background-image: linear-gradient(180deg, #555, #111);
+    align-items: auto;
+    height: 300px;
+    border-radius: 10px;
+}
+
+#foto{
+    background-color: #333;
+    width: 256px; height: 256px;
+    margin: 15px;
+    border: #fff solid 5px;
+    border-radius: 30%;
+}
+
+#user-name{
+    color: bisque;
+    text-align: start;
+    font-size: 3em;
+    margin: auto;
+
+}
+
+.conteudoGithub{
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(180deg, #555, #111);
+    box-shadow: 5px 5px #000;
+    align-items: auto;
+    margin: 5px 5% 5px 5%;
+    border-radius: 20px;
+}
+
+.conteudoGithub > h1{
+    text-align: center;
+    color: #fff;
+    padding-top: 20px;
+}
+
+#lista-repositorios {
+    justify-content:center;
+    margin:auto;
+    display: flex;
+    align-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px;
+}
+
+.repositorio {
+    cursor: pointer;
+    width: 350px;
+    padding: 5px;       
+    color: #fff;
+    border-radius: 15px;
+    background-color: grey;
+    box-shadow: 5px 5px #000;
+
+}
+.repositorio > h1 {
+    font-size: 1.5em;
+}
+
+.repositorio.public > p {
+    color: green;
+}
+
+
+.repositorio p, h5 {
+    font-size: 1.3em;
+    margin: 10px;
+}
+
+
+
+.repositorio.private{
+    background-color: brown;
+}
+
+p.date{
+    position: relative;
+    float: right;
+    right: 0px;
+}
+.linguagem {
+    width: 12px;
+    height: 12px;
+    border: 1px solid var(--color-primer-border-contrast);
+    border-radius: 50%;
+}
+
+#pbi{
+    width: 100%;
+    height: 600px;
+    border-radius: 50px;
+
+}
+
+#dashboard{
+    justify-content: center;
+    text-align: center;
+    margin: 100px auto 20px auto;
+    
+}
+
+#dashboard div {
+
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    position: relative;
+    bottom: 0px;
+    width: 100%;
+    height: 80px;
+    color: bisque;
+    background-color: #333;
+}
+
+footer p{
+    padding: 20px;
+    margin: 20px;   
+}
