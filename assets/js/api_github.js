@@ -4,7 +4,7 @@ const userName = document.getElementById('name')
 const githubUserName = "gabrielback"
 
 const headers = new Headers();
-headers.append('Authorization', 'token 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');
+headers.append('Authorization', 'token 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');
 
 const getUserRepositories = (user) => {
     fetch(`http://api.github.com/users/${user}/repos`, {
@@ -62,7 +62,7 @@ const renderizarRepositorios = repositories => {
     conteudoGithub.innerHTML += "</div>"
 }
 
-const renderizarDashboard = data => {
+function renderizarDashboard(data){
     let dashboard = document.getElementById('dashboard')
     dashboard.insertAdjacentHTML("afterbegin", `
     <h1>${data[0].title}</h1>
