@@ -86,15 +86,13 @@ const renderizarUsuario = data => {
             "afterbegin",
             `
             <div class="header">
-            <div style="display: flex;">
-            <img id="foto" src="${data.avatar_url}">
-            <div id="user-name"></div>
-            <div id="user-info">
-                <div onclick="loadPage('${data.followers_url}')">Followers: ${data.followers}
-                <div onclick="loadPage('${data.following_url}')">Following: ${data.following}
-            </div>
-            </div>
-            </>
+                <div style="display: flex;">
+                    <img id="foto" src="${data.avatar_url}">
+                    <div id="user-name"></div>
+                    <div id="user-info">
+                    <div onclick="loadPage('${data.followers_url}')">Followers: ${data.followers}</div>
+                    <div onclick="loadPage('${data.following_url}')">Following: ${data.following}</div>
+                </div>
             </div>
             `
             )
