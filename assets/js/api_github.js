@@ -4,10 +4,10 @@ const userName = document.getElementById('name')
 const githubUserName = "gabrielback"
 
 const headers = new Headers();
-headers.append('Authorization', 'token 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');
+headers.append('Authorization', 'token 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');
 
 const getUserRepositories = (user) => {
-    fetch(`http://api.github.com/users/${user}/repos`, {
+    fetch("http://api.github.com/users/"+user+"/repos", {
         headers:headers
     })
     .then(async res => {
@@ -39,6 +39,8 @@ const url = data => data.url
 
 const renderiza_foto = (foto) => img_Foto.src = `${foto}`
 
+const loadGithub = (url) => window.location.assign(url)
+
 const renderizarRepositorios = repositories => {
     const conteudoGithub = document.querySelector('.conteudoGithub');
     conteudoGithub.insertAdjacentHTML("afterbegin", `<h1>My Git Repositories</h1><div id="lista-repositorios">`)
@@ -46,10 +48,9 @@ const renderizarRepositorios = repositories => {
     repositories.map(repository => {
         let privacy = repository.private ? "private" : "public"
         let updatedAt = Intl.DateTimeFormat('pt-br').format(new Date(repository.updated_at))
-        
         listaDeRepositorios.innerHTML += 
         ` 
-        <div onclick="loadGithub(this)" class="repositorio ${privacy}">
+        <div onclick="loadGithub('${repository.html_url}')" class="repositorio ${privacy}">
         <h1>${repository.name}</h1>
         <p>${privacy}</p>
         <div>
@@ -90,4 +91,4 @@ const renderizarUsuario = data => {
             <h1>${data.name}</h1>
             `
         }
-       
+        
