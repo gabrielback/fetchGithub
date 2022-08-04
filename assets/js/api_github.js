@@ -4,7 +4,7 @@ const userName = document.getElementById('name')
 const githubUserName = "gabrielback"
 
 const headers = new Headers();
-headers.append('Authorization', 'token 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');
+headers.append('Authorization', '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');
 
 const getUserRepositories = (user) => {
     fetch("http://api.github.com/users/"+user+"/repos", {
