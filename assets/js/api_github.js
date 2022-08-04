@@ -3,8 +3,13 @@ const userImage = document.getElementById('foto')
 const userName = document.getElementById('name')
 const githubUserName = "gabrielback"
 
+const getJson = data => fetch(data).then(response => response.json())
+const url = data => data.url
+const renderiza_foto = (foto) => img_Foto.src = `${foto}`
+const loadPage = (url) => window.location.assign(url)
+
 const headers = new Headers();
-headers.append('Authorization', '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');
+headers.append('Authorization', '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');
 
 const getUserRepositories = (user) => {
     fetch("http://api.github.com/users/"+user+"/repos", {
@@ -18,14 +23,12 @@ const getUserRepositories = (user) => {
         renderizarRepositorios(repo)
     })
     .then(
-        fetch('../json/content.json')
-        .then(response => response.json())
+        getJson('../json/content.json')
         .then(data => {
             renderizarDashboard(data)
         })
         .then(
-            fetch(`https://api.github.com/users/${githubUserName}`)
-            .then(response => response.json())
+            getJson(`https://api.github.com/users/${githubUserName}`)
             .then(data => {
                 renderizarUsuario(data)
             })
@@ -35,11 +38,6 @@ const getUserRepositories = (user) => {
 getUserRepositories(githubUserName)
 
 
-const url = data => data.url
-
-const renderiza_foto = (foto) => img_Foto.src = `${foto}`
-
-const loadGithub = (url) => window.location.assign(url)
 
 const renderizarRepositorios = repositories => {
     const conteudoGithub = document.querySelector('.conteudoGithub');
@@ -74,6 +72,15 @@ function renderizarDashboard(data){
     powerBI.src = data[0].url
 }
 
+const followers = (url) => {
+    getJson(url)
+    .then(data => data.map(user => {
+        return user
+    }))
+}
+
+followers("https://api.github.com/users/gabrielback/followers")
+
 const renderizarUsuario = data => {
         document.querySelector('.content').insertAdjacentHTML(
             "afterbegin",
@@ -82,7 +89,12 @@ const renderizarUsuario = data => {
             <div style="display: flex;">
             <img id="foto" src="${data.avatar_url}">
             <div id="user-name"></div>
+            <div id="user-info">
+                <div onclick="loadPage('${data.followers_url}')">Followers: ${data.followers}
+                <div onclick="loadPage('${data.following_url}')">Following: ${data.following}
             </div>
+            </div>
+            </>
             </div>
             `
             )
