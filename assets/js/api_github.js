@@ -12,7 +12,7 @@ const headers = new Headers();
 headers.append('Authorization', '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');
 
 const getUserRepositories = (user) => {
-    fetch("http://api.github.com/users/"+user+"/repos", {
+    fetch("https://api.github.com/users/"+user+"/repos", {
         headers:headers
     })
     .then(async res => {
